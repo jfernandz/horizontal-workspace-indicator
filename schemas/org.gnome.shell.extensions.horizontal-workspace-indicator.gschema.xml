@@ -11,5 +11,12 @@
       <summary>Widget position</summary>
       <description>This specifies the position of widget on the left, center or right of top panel.</description>
     </key>
+    <key name="wrapping" type="b">
+      <default>true</default>
+      <summary>Enable wrapping</summary>
+      <description>
+        Whether wrapping behavior is enabled.
+      </description>
+    </key>
   </schema>
 </schemalist>

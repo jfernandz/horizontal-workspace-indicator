@@ -55,15 +55,16 @@ let WorkspaceIndicator = GObject.registerClass(
             let workspaceManager = global.workspace_manager;
             let activeWorkspaceIndex = workspaceManager.get_active_workspace_index();
             let button = event.get_button();
+            let lastWorkspaceIndex = workspaceManager.get_n_workspaces()-1
 
             if (button == leftButton) {
                 if (activeWorkspaceIndex == 0) {
-                    return
+                    Main.wm.actionMoveWorkspace(workspaceManager.get_workspace_by_index(lastWorkspaceIndex-1));
                 }
                 Main.wm.actionMoveWorkspace(workspaceManager.get_workspace_by_index(activeWorkspaceIndex-1));
             } else if (button == rightButton) {
-                if (activeWorkspaceIndex == workspaceManager.get_n_workspaces()-1) {
-                    return
+                if (activeWorkspaceIndex == lastWorkspaceIndex) {
+                    Main.wm.actionMoveWorkspace(workspaceManager.get_workspace_by_index(0));
                 }
                 Main.wm.actionMoveWorkspace(workspaceManager.get_workspace_by_index(activeWorkspaceIndex+1));
             }
